@@ -82,8 +82,7 @@ trainer.train("chatterbot.corpus.english.conversations")
 
 # [Documentation](https://chatterbot.readthedocs.io/)
 
-Xem [tài liệu](https://chatterbot.readthedocs.io/)
-for ChatterBot on Read the Docs.
+Xem tài liệu tại [đây](https://chatterbot.readthedocs.io/)
 
 # Reference
 
