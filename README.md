@@ -2,10 +2,9 @@
 
 # ChatterBot
 
-ChatterBot is a machine-learning based conversational dialog engine build in
-Python which makes it possible to generate responses based on collections of
-known conversations. The language independent design of ChatterBot allows it
-to be trained to speak any language.
+ChatterBot là một công cụ hội thoại dựa trên máy học được xây dựng bằng Python, 
+giúp tạo phản hồi dựa trên bộ sưu tập các cuộc hội thoại đã biết. 
+Thiết kế độc lập với ngôn ngữ của ChatterBot cho phép nó được đào tạo để nói bất kỳ ngôn ngữ nào.
 
 [![Package Version](https://img.shields.io/pypi/v/chatterbot.svg)](https://pypi.python.org/pypi/chatterbot/)
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
