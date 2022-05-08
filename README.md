@@ -27,7 +27,7 @@ Ví dụ:
 
 Một phiên bản chưa được đào tạo của ChatterBot bắt đầu mà không có kiến thức về cách giao tiếp. Mỗi khi người dùng nhập một câu lệnh, thư viện sẽ lưu văn bản mà họ đã nhập và văn bản mà câu lệnh đó được phản hồi. Khi ChatterBot nhận được nhiều đầu vào hơn, số lượng câu trả lời mà nó có thể trả lời và độ chính xác của mỗi câu trả lời liên quan đến câu lệnh đầu vào tăng lên. Chương trình chọn câu trả lời phù hợp nhất bằng cách tìm kiếm câu lệnh phù hợp nhất đã biết khớp với đầu vào, sau đó trả về câu trả lời có nhiều khả năng nhất cho câu lệnh đó dựa trên tần suất mỗi câu trả lời được đưa ra bởi những người mà bot giao tiếp.
 
-## Installation
+## Tutorial
 
 This package can be installed from [PyPi](https://pypi.python.org/pypi/ChatterBot) by running:
 
