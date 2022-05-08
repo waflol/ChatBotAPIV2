@@ -78,7 +78,7 @@ trainer.train("chatterbot.corpus.english.greetings")
 trainer.train("chatterbot.corpus.english.conversations")
 ```
 
-**Corpus contributions are welcome! Please make a pull request.**
+
 
 # [Documentation](https://chatterbot.readthedocs.io/)
 
