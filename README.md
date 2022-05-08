@@ -16,7 +16,7 @@ Thiết kế độc lập với ngôn ngữ của ChatterBot cho phép nó đư�
 [![Code Climate](https://codeclimate.com/github/gunthercox/ChatterBot/badges/gpa.svg)](https://codeclimate.com/github/gunthercox/ChatterBot)
 [![Join the chat at https://gitter.im/chatterbot/Lobby](https://badges.gitter.im/chatterbot/Lobby.svg)](https://gitter.im/chatterbot/Lobby?utm_source=badge&utm_medium=badge&utm_content=badge)
 
-An example of typical input would be something like this:
+Ví dụ:
 
 > **user:** Good morning! How are you doing?  
 > **bot:**  I am doing very well, thank you for asking.  
@@ -25,7 +25,7 @@ An example of typical input would be something like this:
 
 ## How it works
 
-An untrained instance of ChatterBot starts off with no knowledge of how to communicate. Each time a user enters a statement, the library saves the text that they entered and the text that the statement was in response to. As ChatterBot receives more input the number of responses that it can reply and the accuracy of each response in relation to the input statement increase. The program selects the closest matching response by searching for the closest matching known statement that matches the input, it then returns the most likely response to that statement based on how frequently each response is issued by the people the bot communicates with.
+Một phiên bản chưa được đào tạo của ChatterBot bắt đầu mà không có kiến thức về cách giao tiếp. Mỗi khi người dùng nhập một câu lệnh, thư viện sẽ lưu văn bản mà họ đã nhập và văn bản mà câu lệnh đó được phản hồi. Khi ChatterBot nhận được nhiều đầu vào hơn, số lượng câu trả lời mà nó có thể trả lời và độ chính xác của mỗi câu trả lời liên quan đến câu lệnh đầu vào tăng lên. Chương trình chọn câu trả lời phù hợp nhất bằng cách tìm kiếm câu lệnh phù hợp nhất đã biết khớp với đầu vào, sau đó trả về câu trả lời có nhiều khả năng nhất cho câu lệnh đó dựa trên tần suất mỗi câu trả lời được đưa ra bởi những người mà bot giao tiếp.
 
 ## Installation
 
@@ -91,28 +91,6 @@ To build the documentation yourself using [Sphinx](http://www.sphinx-doc.org/), 
 sphinx-build -b html docs/ build/
 ```
 
-# Examples
-
-For examples, see the [examples](https://github.com/gunthercox/ChatterBot/tree/master/examples)
-directory in this project's git repository.
-
-There is also an example [Django project using ChatterBot](https://github.com/gunthercox/ChatterBot/tree/master/examples), as well as an example [Flask project using ChatterBot](https://github.com/chamkank/flask-chatterbot).
-
-# History
+# Reference
 
 See release notes for changes https://github.com/gunthercox/ChatterBot/releases
-
-# Development pattern for contributors
-
-1. [Create a fork](https://help.github.com/articles/fork-a-repo/) of
-   the [main ChatterBot repository](https://github.com/gunthercox/ChatterBot) on GitHub.
-2. Make your changes in a branch named something different from `master`, e.g. create
-   a new branch `my-pull-request`.
-3. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/).
-4. Please follow the [Python style guide for PEP-8](https://www.python.org/dev/peps/pep-0008/).
-5. Use the projects [built-in automated testing](https://chatterbot.readthedocs.io/en/latest/testing.html).
-   to help make sure that your contribution is free from errors.
-
-# License
-
-ChatterBot is licensed under the [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause).
