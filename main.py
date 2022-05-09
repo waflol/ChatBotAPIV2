@@ -37,7 +37,7 @@ bot = ChatBot(
     ],
     database_uri='sqlite:///database.sqlite3'
 )
-Start by training our bot with the ChatterBot corpus data
+#Start by training our bot with the ChatterBot corpus data
 trainer = ChatterBotCorpusTrainer(bot)
 
 trainer.train(
