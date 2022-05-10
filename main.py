@@ -16,12 +16,32 @@ ChatterBot Corpus of conversation dialog.
 # Enable info level logging
 logging.basicConfig(level=logging.INFO)
 
+def initialize_Corpus(bot):
+    trainer = ChatterBotCorpusTrainer(bot)
+    trainer.train(
+        'chatterbot.corpus.english'
+    )
+
+def User_teach(bot,statements):
+    trainer = ListTrainer(bot)
+    trainer.train(statements)
+    return "Done!"
+
+
+def get_response(bot,msg):
+    bot_response = bot.get_response(msg)
+    return bot_response
+
+"""
+DEMO
+"""
+# Init
 bot = ChatBot(
     'Example Bot',
     filters=[get_recent_repeated_responses],
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     preprocessors=[
-        'chatterbot.preprocessors.clean_whitespace','chatterbot.preprocessors.remove_special_character'
+        'chatterbot.preprocessors.clean_whitespace'
     ],
     logic_adapters=[
         {
@@ -32,39 +52,19 @@ bot = ChatBot(
         {
             'import_path': 'chatterbot.logic.BestMatch',
             'default_response': 'I am sorry, but I do not understand.',
-            'maximum_similarity_threshold': 0.95
+            'maximum_similarity_threshold': 0.9
         },
     ],
     database_uri='sqlite:///database.sqlite3'
 )
+
+initialize_Corpus(bot)
+
+# Teach by user
+statements = ["What's up?", "How are you?"]
+User_teach(bot,statements)
 #Start by training our bot with the ChatterBot corpus data
-trainer = ChatterBotCorpusTrainer(bot)
-
-trainer.train(
-    'chatterbot.corpus.english.botprofile'
-)
-
-# trainer = ListTrainer(bot)
-# trainer.train(
-#     [
-#         "What do you like?",
-#         "I am interested in all kinds of things. We can talk about anything!"
-#     ])
-
-# trainer.train(
-#     [
-#         "What fruit do you like?",
-#         "I like banana"
-#     ])
-# trainer.train(
-#     [
-#         "What are food interests?",
-#         "I like banana"
-#     ])
-
-print('Type something to begin...')
-
-# The following loop will execute each time the user enters input
+#The following loop will execute each time the user enters input
 while True:
     try:
         user_input = str(input())
@@ -72,10 +72,16 @@ while True:
         bot_response = bot.get_response(user_input)
 
         print(bot_response)
-        
-
     # Press ctrl-c or ctrl-d on the keyboard to exit
     except (KeyboardInterrupt, EOFError, SystemExit):
         break
+
+"""
+END DEMO
+"""
+
+
+
+
 
 
