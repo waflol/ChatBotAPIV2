@@ -32,61 +32,61 @@ def get_response(bot,msg):
     bot_response = bot.get_response(msg)
     return bot_response
 
-"""
-DEMO
-"""
-# Init
-bot = ChatBot(
-    'Example Bot',
-    filters=[get_recent_repeated_responses],
-    storage_adapter='chatterbot.storage.SQLStorageAdapter',
-    preprocessors=[
-        'chatterbot.preprocessors.clean_whitespace'
-    ],
-    logic_adapters=[
-        {
-            'import_path': 'chatterbot.logic.SpecificResponseAdapter',
-            'input_text': 'Help me!',
-            'output_text': 'Ok, here is a link: http://chatterbot.rtfd.org'
-        },
-        {
-            'import_path':'chatterbot.logic.MathematicalEvaluation',
+# """
+# DEMO
+# """
+# # Init
+# bot = ChatBot(
+#     'Example Bot',
+#     filters=[get_recent_repeated_responses],
+#     storage_adapter='chatterbot.storage.SQLStorageAdapter',
+#     preprocessors=[
+#         'chatterbot.preprocessors.clean_whitespace'
+#     ],
+#     logic_adapters=[
+#         {
+#             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
+#             'input_text': 'Help me!',
+#             'output_text': 'Ok, here is a link: http://chatterbot.rtfd.org'
+#         },
+#         {
+#             'import_path':'chatterbot.logic.MathematicalEvaluation',
         
-        },
-        {
-            'import_path':'chatterbot.logic.TimeLogicAdapter',
-        },
-        {
-            'import_path': 'chatterbot.logic.BestMatch',
-            'default_response': 'I am sorry, but I do not understand.',
-            'maximum_similarity_threshold': 0.9
-        },
-    ],
-    database_uri='sqlite:///database.sqlite3'
-)
+#         },
+#         {
+#             'import_path':'chatterbot.logic.TimeLogicAdapter',
+#         },
+#         {
+#             'import_path': 'chatterbot.logic.BestMatch',
+#             'default_response': 'I am sorry, but I do not understand.',
+#             'maximum_similarity_threshold': 0.9
+#         },
+#     ],
+#     database_uri='sqlite:///database.sqlite3'
+# )
 
-initialize_Corpus(bot)
+# initialize_Corpus(bot)
 
-# Teach by user
-statements = ["Where is the location of UTE", "it locates on 1 Vo Van Ngan street"]
-User_teach(bot,statements)
+# # Teach by user
+# statements = ["Where is the location of UTE", "it locates on 1 Vo Van Ngan street"]
+# User_teach(bot,statements)
 
 
-# Chat
-while True:
-    try:
-        user_input = str(input())
+# # Chat
+# while True:
+#     try:
+#         user_input = str(input())
 
-        bot_response = bot.get_response(user_input)
+#         bot_response = bot.get_response(user_input)
 
-        print(bot_response)
-    # Press ctrl-c or ctrl-d on the keyboard to exit
-    except (KeyboardInterrupt, EOFError, SystemExit):
-        break
+#         print(bot_response)
+#     # Press ctrl-c or ctrl-d on the keyboard to exit
+#     except (KeyboardInterrupt, EOFError, SystemExit):
+#         break
 
-"""
-END DEMO
-"""
+# """
+# END DEMO
+# """
 
 
 
