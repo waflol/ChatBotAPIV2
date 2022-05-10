@@ -21,7 +21,7 @@ Ví dụ:
 > **user:** You're welcome.  
 > **bot:** Do you like hats?  
 
-## Phụ thuộc
+## Dependencies
 
 Trước khi sử dụng vui lòng chạy hai dòng dưới trên terminal
 
@@ -30,14 +30,14 @@ pip install -r requirement.txt
 pip install -r dev-requirement.txt
 ```
 ## Running
-### Đối với chạy thông qua flask
+### For running on flask
 - B1: Chạy app.py
 - B2: Để chat với bot thì theo đường dẫn http://192.168.1.79:5000/chat hoặc http://127.0.0.1:5000/chat với việc gửi theo phương thức POST và arg dict với key là req (Có thể sử dụng postman kiêm tra). 
 Ví dụ:
 ![alt text](https://github.com/waflol/ChatBotAPIV2/blob/main/graphics/PostmanTestchat.png)
 - B3: Để dạy bot thì theo đường dẫn http://192.168.1.79:5000/teach hoặc http://127.0.0.1:5000/teach với việc gửi theo phương thức POST và arg dict với 2 key là input và output (Có thể sử dụng postman kiêm tra). Sau train xong bên API sẽ trả về{"res_teach": "Done!"}
 ![alt text](https://github.com/waflol/ChatBotAPIV2/blob/main/graphics/PostmanTestteach.png)
-### Đối với chạy trên terminal
+### For running on terminal
 - B1: Qua file main.py
 - B2: MỞ comment trong đoạn DEMO và END DEMO
 - B3: Chat bình thường thì chỉ cần comment lại đoạn code ở dưới
