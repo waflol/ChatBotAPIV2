@@ -50,6 +50,13 @@ bot = ChatBot(
             'output_text': 'Ok, here is a link: http://chatterbot.rtfd.org'
         },
         {
+            'import_path':'chatterbot.logic.MathematicalEvaluation',
+        
+        },
+        {
+            'import_path':'chatterbot.logic.TimeLogicAdapter',
+        },
+        {
             'import_path': 'chatterbot.logic.BestMatch',
             'default_response': 'I am sorry, but I do not understand.',
             'maximum_similarity_threshold': 0.9
@@ -61,10 +68,11 @@ bot = ChatBot(
 initialize_Corpus(bot)
 
 # Teach by user
-statements = ["What's up?", "How are you?"]
+statements = ["Where is the location of UTE", "it locates on 1 Vo Van Ngan street"]
 User_teach(bot,statements)
-#Start by training our bot with the ChatterBot corpus data
-#The following loop will execute each time the user enters input
+
+
+# Chat
 while True:
     try:
         user_input = str(input())
