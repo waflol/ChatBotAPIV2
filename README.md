@@ -1,4 +1,3 @@
-![ChatterBot: Machine learning in Python](https://i.imgur.com/b3SCmGT.png)
 
 # ChatterBot
 
@@ -9,7 +8,6 @@ Thiết kế độc lập với ngôn ngữ của ChatterBot cho phép nó đư�
 [![Package Version](https://img.shields.io/pypi/v/chatterbot.svg)](https://pypi.python.org/pypi/chatterbot/)
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 [![Django 2.0](https://img.shields.io/badge/Django-2.0-blue.svg)](https://docs.djangoproject.com/en/2.1/releases/2.0/)
-[![Requirements Status](https://requires.io/github/gunthercox/ChatterBot/requirements.svg?branch=master)](https://requires.io/github/gunthercox/ChatterBot/requirements/?branch=master)
 [![Build Status](https://travis-ci.org/gunthercox/ChatterBot.svg?branch=master)](https://travis-ci.org/gunthercox/ChatterBot)
 [![Documentation Status](https://readthedocs.org/projects/chatterbot/badge/?version=stable)](http://chatterbot.readthedocs.io/en/stable/?badge=stable)
 [![Coverage Status](https://img.shields.io/coveralls/gunthercox/ChatterBot.svg)](https://coveralls.io/r/gunthercox/ChatterBot)
@@ -23,10 +21,6 @@ Ví dụ:
 > **user:** You're welcome.  
 > **bot:** Do you like hats?  
 
-## How it works
-
-Một phiên bản chưa được đào tạo của ChatterBot bắt đầu mà không có kiến thức về cách giao tiếp. Mỗi khi người dùng nhập một câu lệnh, thư viện sẽ lưu văn bản mà họ đã nhập và văn bản mà câu lệnh đó được phản hồi. Khi ChatterBot nhận được nhiều đầu vào hơn, số lượng câu trả lời mà nó có thể trả lời và độ chính xác của mỗi câu trả lời liên quan đến câu lệnh đầu vào tăng lên. Chương trình chọn câu trả lời phù hợp nhất bằng cách tìm kiếm câu lệnh phù hợp nhất đã biết khớp với đầu vào, sau đó trả về câu trả lời có nhiều khả năng nhất cho câu lệnh đó dựa trên tần suất mỗi câu trả lời được đưa ra bởi những người mà bot giao tiếp.
-
 ## Tutorial
 
 This package can be installed from [PyPi](https://pypi.python.org/pypi/ChatterBot) by running:
@@ -35,7 +29,30 @@ This package can be installed from [PyPi](https://pypi.python.org/pypi/ChatterBo
 pip install -r requirement.txt
 pip install -r dev-requirement.txt
 ```
-
+## Running
+### Đối với chạy thông qua flask
+- B1: Chạy app.py
+- B2: Để chat với bot thì theo đường dẫn http://192.168.1.79:5000/chat hoặc http://127.0.0.1:5000/chat với việc gửi theo phương thức POST và arg dict với key là req (Có thể sử dụng postman kiêm tra). 
+Ví dụ:
+![alt text](https://github.com/waflol/ChatBotAPIV2/blob/main/graphics/PostmanTestchat.png)
+- B3: Để dạy bot thì theo đường dẫn http://192.168.1.79:5000/teach hoặc http://127.0.0.1:5000/teach với việc gửi theo phương thức POST và arg dict với 2 key là input và output (Có thể sử dụng postman kiêm tra). Sau train xong bên API sẽ trả về{"res_teach": "Done!"}
+![alt text](https://github.com/waflol/ChatBotAPIV2/blob/main/graphics/PostmanTestteach.png)
+### Đối với chạy trên terminal
+- B1: Qua file main.py
+- B2: MỞ comment trong đoạn DEMO và END DEMO
+- B3: Chat bình thường thì chỉ cần comment lại đoạn code ở dưới
+```
+# Teach by user
+statements = ["What's up?", "How are you?"]
+User_teach(bot,statements)
+```
+- B4: Sau đó chạy file main.py
+- B5 (optional): Để dạy bot thì mở phần comment ở dưới. Trong statements ta sẽ thêm 2 chuỗi input và output mong muốn theo dạng [input,output]
+```
+# Teach by user
+statements = ["What's up?", "How are you?"] # [input,output]
+User_teach(bot,statements)
+```
 ## Basic Usage
 
 ```
@@ -55,13 +72,10 @@ chatbot.get_response("Hello, how are you today?")
 ```
 
 # Training data
-
-ChatterBot comes with a data utility module that can be used to train chat bots.
-At the moment there is training data for over a dozen languages in this module.
-Contributions of additional training data or training data
-in other languages would be greatly appreciated. Take a look at the data files
-in the [chatterbot-corpus](https://github.com/gunthercox/chatterbot-corpus)
-package if you are interested in contributing.
+ChatterBot đi kèm với một mô-đun tiện ích dữ liệu có thể được sử dụng để đào tạo các bot trò chuyện. 
+Hiện tại, có dữ liệu đào tạo cho hơn một chục ngôn ngữ trong mô-đun này. 
+Những đóng góp về dữ liệu đào tạo bổ sung hoặc dữ liệu đào tạo bằng các ngôn ngữ khác sẽ được đánh giá rất cao. 
+Hãy xem các tệp dữ liệu trong gói [chatterbot-corpus](https://github.com/gunthercox/chatterbot-corpus)
 
 ```
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -83,7 +97,7 @@ trainer.train("chatterbot.corpus.english.conversations")
 
 # [Documentation](https://chatterbot.readthedocs.io/)
 
-Xem tài liệu tại [đây](https://chatterbot.readthedocs.io/)
+Xem tài liệu chi tiết của chatterbot tại [đây](https://chatterbot.readthedocs.io/)
 
 # Reference
 
