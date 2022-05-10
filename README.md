@@ -32,7 +32,8 @@ Một phiên bản chưa được đào tạo của ChatterBot bắt đầu mà 
 This package can be installed from [PyPi](https://pypi.python.org/pypi/ChatterBot) by running:
 
 ```
-pip install chatterbot
+pip install -r requirement.txt
+pip install -r dev-requirement.txt
 ```
 
 ## Basic Usage
