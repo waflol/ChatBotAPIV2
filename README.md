@@ -95,10 +95,6 @@ trainer.train("chatterbot.corpus.english.conversations")
 
 
 
-# [Documentation](https://chatterbot.readthedocs.io/)
+# Documentation
 
-Xem tài liệu chi tiết của chatterbot tại [đây](https://chatterbot.readthedocs.io/)
-
-# Reference
-
-See release notes for changes https://github.com/gunthercox/ChatterBot/releases
+Xem tài liệu chi tiết và tham khảo của chatterbot tại [đây](https://chatterbot.readthedocs.io/)
