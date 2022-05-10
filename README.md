@@ -27,7 +27,6 @@ Trước khi sử dụng vui lòng chạy hai dòng dưới trên terminal
 
 ```
 pip install -r requirement.txt
-pip install -r dev-requirement.txt
 ```
 ## Running
 ### For running on flask
