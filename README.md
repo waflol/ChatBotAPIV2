@@ -21,9 +21,9 @@ Ví dụ:
 > **user:** You're welcome.  
 > **bot:** Do you like hats?  
 
-## Tutorial
+## Phụ thuộc
 
-This package can be installed from [PyPi](https://pypi.python.org/pypi/ChatterBot) by running:
+Trước khi sử dụng vui lòng chạy hai dòng dưới trên terminal
 
 ```
 pip install -r requirement.txt
