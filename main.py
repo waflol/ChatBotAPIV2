@@ -32,6 +32,12 @@ def get_response(bot,msg):
     bot_response = bot.get_response(msg)
     return bot_response
 
+def initialize_CorpusDetail(bot,lang='english'):
+    trainer = ChatterBotCorpusTrainer(bot)
+    trainer.train(
+        'chatterbot.corpus.'+lang
+    )
+
 # """
 # DEMO
 # """
