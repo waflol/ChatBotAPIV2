@@ -156,8 +156,8 @@ def deleteUserbot():
     return jsonify(res_delete="Done!")
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",debug=os.environ.get('DEBUG')=='1',port=int(os.environ.get("PORT", 8080)))
+    app.run(host="0.0.0.0",debug=os.environ.get('DEBUG')=='1',port=int(os.environ.get("PORT", 80)))
     
     
-# docker run -p 5000:5000 -e DEBUG=1 <image-name>
+# docker run -p 8080:8080 -e DEBUG=1 <image-name>
 
