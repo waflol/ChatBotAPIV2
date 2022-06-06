@@ -4,9 +4,9 @@ from chatterbot.filters import get_recent_repeated_responses
 from main import initialize_Corpus,User_teach,get_response, initialize_CorpusDetail
 import sys,os
 
-# isMainTraining = False
-# if os.path.exists('./database.sqlite3') == False:
-#     isMainTraining = True
+isMainTraining = False
+if os.path.exists('./database.sqlite3') == False:
+    isMainTraining = True
 
 bot = ChatBot(
     'Example Bot',
@@ -27,32 +27,32 @@ bot = ChatBot(
             'maximum_similarity_threshold': 0.95
         },
     ],
-    database_uri='mongodb://localhost:27017/chatterbot-database'
+    database_uri='sqlite:///database.sqlite3'
 )
 
 app = Flask(__name__)
-# if isMainTraining:
-#     initialize_Corpus(bot)
+if isMainTraining:
+    initialize_Corpus(bot)
     
-@app.route("/",endpoint='home')
+@app.route("/")
 def home():
     return "Hello, Flask!"
 
-@app.route("/teach",methods=['POST'],endpoint='teach')
+@app.route("/teach",methods=['POST'])
 def teach():
     input_s = request.get_json()["input"]
     output_s = request.get_json()["output"]
     statements = [input_s,output_s]
     return jsonify(res_teach=User_teach(bot,statements))
 
-@app.route('/chat',methods=['POST'],endpoint='chatBot')
+@app.route('/chat',methods=['POST'])
 def chatBot():
     Input = request.get_json()["req"]
     Output = get_response(bot,Input)
     return jsonify(res=Output.text)
 
 
-@app.route("/newBot",methods=['POST'],endpoint='newBot')
+@app.route("/newBot",methods=['POST'])
 def newBot():
     user_id = request.get_json()["user_id"]
     language = request.get_json()["language"]
@@ -81,7 +81,7 @@ def newBot():
     initialize_CorpusDetail(user_bot,lang=language)
     return jsonify(res='Done initialization!',ResUser_id=user_id)
 
-@app.route("/chatuserbot",methods=['POST'],endpoint='chatUserBot')
+@app.route("/chatuserbot",methods=['POST'])
 def chatUserBot():
     Input = request.get_json()["req"]
     user_id = request.get_json()["user_id"]
@@ -114,7 +114,7 @@ def chatUserBot():
     else:
         return jsonify(res="Error!")
     
-@app.route("/teachuserbot",methods=['POST'],endpoint='teachUserBot')
+@app.route("/teachuserbot",methods=['POST'])
 def teachUserBot():
     input_s = request.get_json()["input"]
     output_s = request.get_json()["output"]
@@ -145,7 +145,7 @@ def teachUserBot():
                 )
     return jsonify(res_teach=User_teach(user_bot,statements))
 
-@app.route("/deleteduserbot",methods=['POST'],endpoint='deleteUserbot')
+@app.route("/deleteduserbot",methods=['POST'])
 def deleteUserbot():
     user_id = request.get_json()["user_id"]
     language = request.get_json()["language"]
