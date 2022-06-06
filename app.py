@@ -29,11 +29,11 @@ bot = ChatBot(
     ],
     database_uri='sqlite:///database.sqlite3'
 )
-
-app = Flask(__name__)
 if isMainTraining:
     initialize_Corpus(bot)
-    
+
+app = Flask(__name__)
+
 @app.route("/")
 def home():
     return "Hello, Flask!"
