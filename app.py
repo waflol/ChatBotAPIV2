@@ -34,25 +34,25 @@ app = Flask(__name__)
 if isMainTraining:
     initialize_Corpus(bot)
     
-@app.route("/")
+@app.route("/",endpoint='home')
 def home():
     return "Hello, Flask!"
 
-@app.route("/teach",methods=['POST'])
+@app.route("/teach",methods=['POST'],endpoint='teach')
 def teach():
     input_s = request.get_json()["input"]
     output_s = request.get_json()["output"]
     statements = [input_s,output_s]
     return jsonify(res_teach=User_teach(bot,statements))
 
-@app.route('/chat',methods=['POST'])
+@app.route('/chat',methods=['POST'],endpoint='chatBot')
 def chatBot():
     Input = request.get_json()["req"]
     Output = get_response(bot,Input)
     return jsonify(res=Output.text)
 
 
-@app.route("/newBot",methods=['POST'])
+@app.route("/newBot",methods=['POST'],endpoint='newBot')
 def newBot():
     user_id = request.get_json()["user_id"]
     language = request.get_json()["language"]
@@ -81,8 +81,8 @@ def newBot():
     initialize_CorpusDetail(user_bot,lang=language)
     return jsonify(res='Done initialization!',ResUser_id=user_id)
 
-@app.route("/chatuserbot",methods=['POST'])
-def UserBot():
+@app.route("/chatuserbot",methods=['POST'],endpoint='chatUserBot')
+def chatUserBot():
     Input = request.get_json()["req"]
     user_id = request.get_json()["user_id"]
     language = request.get_json()["language"]
@@ -114,8 +114,8 @@ def UserBot():
     else:
         return jsonify(res="Error!")
     
-@app.route("/teachuserbot",methods=['POST'])
-def UserBot():
+@app.route("/teachuserbot",methods=['POST'],endpoint='teachUserBot')
+def teachUserBot():
     input_s = request.get_json()["input"]
     output_s = request.get_json()["output"]
     statements = [input_s,output_s]
@@ -145,8 +145,8 @@ def UserBot():
                 )
     return jsonify(res_teach=User_teach(user_bot,statements))
 
-@app.route("/deleteduserbot",methods=['POST'])
-def UserBot():
+@app.route("/deleteduserbot",methods=['POST'],endpoint='deleteUserbot')
+def deleteUserbot():
     user_id = request.get_json()["user_id"]
     language = request.get_json()["language"]
     db_url = 'sqlite:///database_'+user_id+'_'+language+'.sqlite3'
