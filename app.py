@@ -4,11 +4,14 @@ from chatterbot.filters import get_recent_repeated_responses
 from main import initialize_Corpus,User_teach,get_response, initialize_CorpusDetail
 import sys,os
 
+isMainTraining = False
+if os.path.exists('./database.sqlite3') == False:
+    isMainTraining = True
 
 bot = ChatBot(
     'Example Bot',
     filters=[get_recent_repeated_responses],
-    storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
+    storage_adapter='chatterbot.storage.SQLStorageAdapter',
     preprocessors=[
         'chatterbot.preprocessors.clean_whitespace'
     ],
@@ -23,12 +26,13 @@ bot = ChatBot(
             'default_response': 'I am sorry, but I do not understand. Please teach me!',
             'maximum_similarity_threshold': 0.95
         },
-    ]
+    ],
+    database_uri='sqlite:///database.sqlite3'
 )
-initialize_Corpus(bot)
 
 app = Flask(__name__)
-    
+if isMainTraining:
+    initialize_Corpus(bot)
     
 @app.route("/",endpoint='home')
 def home():
