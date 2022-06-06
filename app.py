@@ -4,9 +4,9 @@ from chatterbot.filters import get_recent_repeated_responses
 from main import initialize_Corpus,User_teach,get_response, initialize_CorpusDetail
 import sys,os
 
-isMainTraining = False
-if os.path.exists('./database.sqlite3') == False:
-    isMainTraining = True
+# isMainTraining = False
+# if os.path.exists('./database.sqlite3') == False:
+#     isMainTraining = True
 
 bot = ChatBot(
     'Example Bot',
@@ -27,12 +27,12 @@ bot = ChatBot(
             'maximum_similarity_threshold': 0.95
         },
     ],
-    database_uri='sqlite:///database.sqlite3'
+    database_uri='mongodb://localhost:27017/chatterbot-database'
 )
 
 app = Flask(__name__)
-if isMainTraining:
-    initialize_Corpus(bot)
+# if isMainTraining:
+#     initialize_Corpus(bot)
     
 @app.route("/",endpoint='home')
 def home():
