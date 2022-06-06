@@ -5,7 +5,7 @@ from main import initialize_Corpus,User_teach,get_response, initialize_CorpusDet
 import sys,os
 
 isMainTraining = False
-if os.path.exists('database.sqlite3') == False:
+if os.path.exists('./database.sqlite3') == False:
     isMainTraining = True
 
 bot = ChatBot(
