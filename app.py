@@ -27,7 +27,7 @@ bot = ChatBot(
             'maximum_similarity_threshold': 0.95
         },
     ],
-    database_uri='sqlite:///database.sqlite3'
+    # database_uri='sqlite:///database.sqlite3'
 )
 
 app = Flask(__name__)
